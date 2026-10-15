@@ -8,7 +8,8 @@ public class JavaSpringBootBeadandoEloadasApplication {
 
     public static void main(String[] args) {
         // SpringApplication.run(JavaSpringBootBeadandoEloadasApplication.class, args);
-        var orderService = new OrderService(new PaypalPaymentService());
+        var orderService = new OrderService();
+        orderService.setPaymentService(new PaypalPaymentService());
         orderService.placeOrder();
     }
 
