@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-<title>W3.CSS Start Page Template</title>
+<title>navbar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/6/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -24,30 +24,26 @@
   <nav>
     <nav class="w3-flex w3-red w3-card w3-large">
 
-      <a href="#"
-         class="w3-button w3-padding-large w3-white">
-        Home
+      <a href="/"
+         class="w3-button w3-hide-small w3-padding-large w3-hover-white">
+        FŐOLDAL
       </a>
 
-      <a href="#"
+      <a href="/soap"
          class="w3-button w3-hide-small w3-padding-large w3-hover-white">
-        Link 1
+        SOAP
       </a>
-
-      <a href="#"
-         class="w3-button w3-hide-small w3-padding-large w3-hover-white">
-        Link 2
-      </a>
-
-      <a href="#"
-         class="w3-button w3-hide-small w3-padding-large w3-hover-white">
-        Link 3
-      </a>
-
-      <a href="#"
-         class="w3-button w3-hide-small w3-padding-large w3-hover-white">
-        Link 4
-      </a>
+      <div class="w3-dropdown-hover">
+        <button class="w3-button w3-hide-small w3-padding-large w3-hover-white">FOREX</button>
+          <div class="w3-dropdown-content w3-bar-block w3-border">
+            <a href="/forex_account" class="w3-bar-item w3-button">Account menü</a>
+            <a href="/forex_current" class="w3-bar-item w3-button">AktÁr menü</a>
+            <a href="/forex_history" class="w3-bar-item w3-button">HistÁr menü</a>
+            <a href="/forex_position" class="w3-bar-item w3-button">Poz menü</a>
+            <a href="/forex_open" class="w3-bar-item w3-button">Nyit menü</a>
+            <a href="/forex_close" class="w3-bar-item w3-button">Zár menü</a>
+          </div>
+      </div>
 
       <button
               class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white w3-red"
