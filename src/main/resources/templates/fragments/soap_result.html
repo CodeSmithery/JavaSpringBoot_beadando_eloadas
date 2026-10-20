@@ -1,0 +1,66 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<title>soap_result</title>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/6/w3.css">-->
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">-->
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--<style>-->
+<!--    body,h1,h2,h3,h4,h5,h6 {font-family:"Lato",sans-serif}-->
+<!--    .w3-bar,h1,button {font-family:"Montserrat",sans-serif}-->
+<!--    .fa-anchor,.fa-coffee {font-size:200px}-->
+<!--</style>-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<div class="w3-container w3-large w3-padding-large w3-center" th:fragment="soap_result">
+<!--    <h1>Lekért árak:</h1>-->
+<!--    <p th:text="'Prices: ' + ${sendOut}"></p>-->
+    <canvas id="myChart"></canvas>
+
+
+<script th:inline="javascript">
+    let currency = [[${currency}]]
+    let rates = [[${outObject}]];
+    console.log(rates);
+    let labelArray = [];
+    let valueArray = [];
+
+    // console.log(rates);
+    // console.log(Array.isArray(rates));
+
+    rates.days.forEach(day => {
+        labelArray.unshift(day.date);
+        valueArray.unshift(parseFloat(day.rate.value.replace(",",".")));
+    })
+
+    // valueArray.forEach(value => {
+    //     console.log(value);
+    // })
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelArray,
+            datasets: [{
+                label: `Árfolyam (HUF / ${currency})`,
+                data: valueArray,
+            }]
+        }
+    });
+</script>
+
+    <a th:href="@{'/soap'}"><h2 class="w3-bold w3-button w3-red w3-padding-large w3-hover-green" style="margin-top: 120px">Vissza az űrlapra</h2></a>
+</div>
+
+<!--</body>-->
+<!--</html>-->

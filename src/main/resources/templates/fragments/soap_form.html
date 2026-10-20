@@ -1,0 +1,126 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<title>soap_form</title>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/6/w3.css">-->
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">-->
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--<style>-->
+<!--    body,h1,h2,h3,h4,h5,h6 {font-family:"Lato",sans-serif}-->
+<!--    .w3-bar,h1,button {font-family:"Montserrat",sans-serif}-->
+<!--    .fa-anchor,.fa-coffee {font-size:200px}-->
+<!--</style>-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<div class="w3-container" th:fragment="soap_form">
+    <form class="w3-form w3-center" action="#" th:action="@{/soap/mnb_request}" th:object="${param}" method="post">
+        <table class="w3-content" style="max-width:800px; min-width:400px;">
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Pénznem:</td>
+                <td class="w3-left-align w3-padding-small">
+                    <select name="currencies" th:field="*{currency}">
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="HUF">HUF</option>
+                        <option value="EUR">EUR</option>
+                        <option value="AUD">AUD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="CZK">CZK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="GBP">GBP</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HRK">HRK</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="INR">INR</option>
+                        <option value="ISK">ISK</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="MXN">MXN</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="NZD">NZD</option>
+                        <option value="PHP">PHP</option>
+                        <option value="PLN">PLN</option>
+                        <option value="RON">RON</option>
+                        <option value="RSD">RSD</option>
+                        <option value="RUB">RUB</option>
+                        <option value="SEK">SEK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="UAH">UAH</option>
+                        <option value="USD">USD</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="ATS">ATS</option>
+                        <option value="AUP">AUP</option>
+                        <option value="BEF">BEF</option>
+                        <option value="BGL">BGL</option>
+                        <option value="CYN">CYN</option>
+                        <option value="CSD">CSD</option>
+                        <option value="CSK">CSK</option>
+                        <option value="DDM">DDM</option>
+                        <option value="DEM">DEM</option>
+                        <option value="EEK">EEK</option>
+                        <option value="EGP">EGP</option>
+                        <option value="ESP">ESP</option>
+                        <option value="FIM">FIM</option>
+                        <option value="FRF">FRF</option>
+                        <option value="GHP">GHP</option>
+                        <option value="GRD">GRD</option>
+                        <option value="IEP">IEP</option>
+                        <option value="ITL">ITL</option>
+                        <option value="KPW">KPW</option>
+                        <option value="KWD">KWD</option>
+                        <option value="LBP">LBP</option>
+                        <option value="LTL">LTL</option>
+                        <option value="LUF">LUF</option>
+                        <option value="LVL">LVL</option>
+                        <option value="MNT">MNT</option>
+                        <option value="NLG">NLG</option>
+                        <option value="OAL">OAL</option>
+                        <option value="OBL">OBL</option>
+                        <option value="OFR">OFR</option>
+                        <option value="ORB">ORB</option>
+                        <option value="PKR">PKR</option>
+                        <option value="PTE">PTE</option>
+                        <option value="ROL">ROL</option>
+                        <option value="SDP">SDP</option>
+                        <option value="SIT">SIT</option>
+                        <option value="SKK">SKK</option>
+                        <option value="SUR">SUR</option>
+                        <option value="VND">VND</option>
+                        <option value="XEU">XEU</option>
+                        <option value="XTR">XTR</option>
+                        <option value="YUD">YUD</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Kezdő dátum: </td>
+                <td class="w3-left-align w3-padding-small"><input type="date" th:field="*{startDate}"></td>
+            </tr>
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Végső dátum: </td>
+                <td class="w3-left-align w3-padding-small" style="border: none"><input type="date" th:field="*{endDate}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Lekérdez" class="w3-button w3-red w3-hover-green w3-round-large">
+    </form>
+</div>
+
+<!--</body>-->
+<!--</html>-->

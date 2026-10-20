@@ -13,14 +13,21 @@
         .w3-bar,h1,button {font-family:"Montserrat",sans-serif}
         .fa-anchor,.fa-coffee {font-size:200px}
     </style>
+    <!-- Chart.js betöltése CDN-ről -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main>
-
+<main class="w3-content w3-padding-64" style="max-width:1500px">
+    <div class="w3-container w3-center" th:if="${formFilled}">
+        <div th:replace="~{fragments/soap_result}"></div>
+    </div>
+    <div class="w3-container w3-center" th:unless="${formFilled}">
+        <div th:replace="~{fragments/soap_form}"></div>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
