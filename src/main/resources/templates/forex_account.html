@@ -20,16 +20,67 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <main>
-
+    <div class="w3-center w3-padding-64">
+        <h2>Forex fiók adatai:</h2>
+        <table class="w3-hoverable w3-striped w3-content w3-centered" id="accountTable">
+            <tr>
+                <td class="w3-bold">ID</td>
+                <td id="id"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Balance</td>
+                <td id="balanceAndCurrency"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Financing</td>
+                <td id="financing"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Last transaction ID</td>
+                <td id="lastTransactionID"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Withdrawal limit</td>
+                <td id="withdrawalLimit"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Open positions</td>
+                <td id="openPositionCount"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Open trades</td>
+                <td id="openTradeCount"></td>
+            </tr>
+            <tr>
+                <td class="w3-bold">Pending orders</td>
+                <td id="pendingOrderCount"></td>
+            </tr>
+        </table>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
-<script>
+<script th:inline="javascript">
     const mobileMenu = document.getElementById("navDemo");
 
     function myFunction() {
         mobileMenu.classList.toggle("w3-show");
     }
+
+    let account = [[${account}]];
+    console.log(account);
+
+    window.onload = function() {
+        document.getElementById("id").textContent = account.id;
+        document.getElementById("balanceAndCurrency").textContent = account.balance + " " + account.currency;
+        document.getElementById("financing").textContent = account.financing;
+        document.getElementById("lastTransactionID").textContent = account.lastTransactionID;
+        document.getElementById("withdrawalLimit").textContent = account.withdrawalLimit + " " + account.currency;
+        document.getElementById("openPositionCount").textContent = account.openPositionCount;
+        document.getElementById("openTradeCount").textContent = account.openTradeCount;
+        document.getElementById("pendingOrderCount").textContent = account.pendingOrderCount;
+    }
+
 </script>
 </body>
 </html>

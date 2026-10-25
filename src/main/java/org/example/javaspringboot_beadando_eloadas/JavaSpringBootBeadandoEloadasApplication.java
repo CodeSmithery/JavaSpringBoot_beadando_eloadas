@@ -10,4 +10,6 @@ public class JavaSpringBootBeadandoEloadasApplication {
         SpringApplication.run(JavaSpringBootBeadandoEloadasApplication.class, args);
     }
 
+
+
 }
