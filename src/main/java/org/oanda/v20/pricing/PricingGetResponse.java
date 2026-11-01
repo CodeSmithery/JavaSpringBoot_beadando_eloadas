@@ -20,7 +20,7 @@ public class PricingGetResponse {
     private PricingGetResponse() {
     }
 
-    @SerializedName("prices") private ArrayList<ClientPrice> prices;
+    @SerializedName("prices") private ArrayList<com.oanda.v20.pricing.ClientPrice> prices;
 
     /**
      * Get the prices
@@ -30,11 +30,11 @@ public class PricingGetResponse {
      * @return the prices
      * @see ClientPrice
      */
-    public List<ClientPrice> getPrices() {
+    public List<com.oanda.v20.pricing.ClientPrice> getPrices() {
         return this.prices;
     }
 
-    @SerializedName("homeConversions") private ArrayList<HomeConversions> homeConversions;
+    @SerializedName("homeConversions") private ArrayList<com.oanda.v20.pricing.HomeConversions> homeConversions;
 
     /**
      * Get the homeConversions
@@ -46,7 +46,7 @@ public class PricingGetResponse {
      * @return the homeConversions
      * @see HomeConversions
      */
-    public List<HomeConversions> getHomeConversions() {
+    public List<com.oanda.v20.pricing.HomeConversions> getHomeConversions() {
         return this.homeConversions;
     }
 
