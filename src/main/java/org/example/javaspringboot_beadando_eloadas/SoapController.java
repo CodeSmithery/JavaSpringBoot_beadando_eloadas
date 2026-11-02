@@ -30,12 +30,9 @@ public class SoapController {
         return "soap";
     }
 
-
     @GetMapping("/soap/mnb_request")
-    public String input(Model model){
-        model.addAttribute("param", new MessagePrice());
-        return "soap";
-    }
+    public String input(Model model){ return "soap";}
+
     @PostMapping("/soap/mnb_request")
     public String output(@ModelAttribute MessagePrice messagePrice, Model model) throws MNBArfolyamServiceSoapGetExchangeRatesStringFaultFaultMessage, JsonProcessingException {
         MNBArfolyamServiceSoapImpl impl = new MNBArfolyamServiceSoapImpl();

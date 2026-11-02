@@ -1,6 +1,6 @@
 package org.example.javaspringboot_beadando_eloadas;
 
-import com.oanda.v20.account.AccountID;
+import com.v20.account.AccountID;
 
 
 public class Config {
