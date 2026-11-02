@@ -18,7 +18,7 @@ public class AccountInstrumentsResponse {
      * <p>
      * Construct a new AccountInstrumentsResponse
      */
-    private AccountInstrumentsResponse() {
+    public AccountInstrumentsResponse() {
     }
 
     @SerializedName("instruments") private ArrayList<Instrument> instruments;
