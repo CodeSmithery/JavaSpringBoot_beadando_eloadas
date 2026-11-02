@@ -21,7 +21,7 @@ public class ForexController {
         this.historyRequest = historyRequest;
         this.dataProvider = dataProvider;
     }
-    //    @GetMapping("/account_info")
+//    @GetMapping("/account_info")
 //    @ResponseBody
 //    public AccountSummary f1() {
 //        Context ctx = new Context(Config.URL,Config.TOKEN);

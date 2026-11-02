@@ -1,0 +1,52 @@
+<div class="w3-container" th:fragment="forex_history_form">
+    <form class="w3-form w3-center" action="#" th:action="@{/forex_history/form}" th:object="${candleRequest}" method="post">
+        <table class="w3-content" style="max-width:800px; min-width:400px;">
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Válassz egy devizapárt: </td>
+                <td class="w3-left-align w3-padding-small"><select id="instrumentSelector" th:field="*{instrumentName}"></select></td>
+            </tr>
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Időbeli felbontás:</td>
+                <td class="w3-left-align w3-padding-small"><select id="granualitySelector" th:field="*{granularity}"></select></td>
+            </tr>
+        </table>
+        <input type="submit" value="Lekérdez" class="w3-button w3-red w3-hover-green w3-round-large">
+    </form>
+</div>
+
+<script th:inline="javascript">
+    let instruments = [[${instruments}]]
+
+    let instrSelect = document.getElementById("instrumentSelector")
+    let granSelect = document.getElementById("granualitySelector")
+    let granualities = [[${granualities}]]
+
+    // console.log(instruments)
+    // console.log(granualities)
+
+
+    instruments.forEach(instrument => {
+        let instrOption = new Option(instrument.displayName,instrument.name)
+        instrSelect.appendChild(instrOption)
+    });
+    console.log(granualities);
+    let displayText = "";
+    granualities.forEach(granuality => {
+        if (granuality.includes('S'))
+            displayText = granuality.replace("S", "") + " másodpercenként";
+        if (granuality.includes('M') && granuality.length > 1)
+            displayText = granuality.replace("M", "") + " percenként";
+        else if (granuality.includes('M') && granuality.length === 1)
+            displayText = granuality.replace("M", "") + "Havonta";
+        if (granuality.includes('H'))
+            displayText = granuality.replace("H", "") + " óránként";
+        if (granuality.includes('D'))
+            displayText = granuality.replace("D", "") + "Naponta";
+        if (granuality.includes('W'))
+            displayText = granuality.replace("W", "") + "Hetente";
+
+        let granOption = new Option(displayText,granuality)
+        granSelect.appendChild(granOption)
+    })
+
+</script>

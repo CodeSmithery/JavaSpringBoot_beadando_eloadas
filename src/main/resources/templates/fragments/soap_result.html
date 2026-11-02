@@ -3,7 +3,6 @@
     <!--    <p th:text="'Prices: ' + ${sendOut}"></p>-->
     <canvas id="myChart"></canvas>
 
-
     <script th:inline="javascript">
         let currency = [[${currency}]]
         let rates = [[${outObject}]];
@@ -11,8 +10,8 @@
         let labelArray = [];
         let valueArray = [];
 
-console.log(rates);
-console.log(Array.isArray(rates));
+        console.log(rates);
+        console.log(Array.isArray(rates));
 
         rates.days.forEach(day => {
             labelArray.unshift(day.date);
@@ -35,6 +34,5 @@ console.log(Array.isArray(rates));
             }
         });
     </script>
-
     <a th:href="@{'/soap'}"><h2 class="w3-bold w3-button w3-red w3-padding-large w3-hover-green" style="margin-top: 120px">Vissza az űrlapra</h2></a>
 </div>
