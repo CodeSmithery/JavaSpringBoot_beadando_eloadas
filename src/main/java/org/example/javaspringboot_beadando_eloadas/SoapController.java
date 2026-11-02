@@ -23,13 +23,12 @@ public class SoapController {
     public void commonModel(Model model) {
         model.addAttribute("formFilled", false);
         model.addAttribute("param", new MessagePrice());
+        model.addAttribute("defaultStartDate", LocalDate.now().minusDays(10).toString());
+        model.addAttribute("defaultEndDate", LocalDate.now().toString());
     }
 
     @RequestMapping("/soap")
-    public String soap(){
-        return "soap";
-    }
-
+    public String soap(){return "soap";}
 
     @GetMapping("/soap/mnb_request")
     public String input(Model model){
