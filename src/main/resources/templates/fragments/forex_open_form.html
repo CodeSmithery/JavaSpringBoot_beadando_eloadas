@@ -1,0 +1,30 @@
+<div class="w3-container">
+    <form class="w3-form w3-center" action="#" th:action="@{/forex_open/opened}" th:object="${position}" method="post">
+        <table class="w3-content" style="max-width:800px; min-width:400px;">
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Válassz egy devizapárt: </td>
+                <td class="w3-left-align w3-padding-small"><select class="w3-select w3-border" id="instrumentSelector" th:field="*{instrumentName}"></select></td>
+            </tr>
+            <tr class="w3-large">
+                <td class="w3-right-align w3-bold w3-padding-small">Írd be a mennyiséget: </td>
+                <td class="w3-left-align w3-padding-small"><input class="w3-input w3-border" type="number" id="quantity" name="quantityInput" min="-100" max="100" step="1" value="1" th:field="*{units}" required></td>
+            </tr>
+        </table>
+        <input type="submit" value="POZÍCIÓ NYITÁSA" class="w3-large w3-button w3-red w3-hover-green w3-round-large">
+    </form>
+</div>
+<script th:inline="javascript">
+    let instruments = [[${instruments}]]
+    let instrSelect = document.getElementById("instrumentSelector")
+    // let quantityInput = document.getElementById("quantityInput")
+
+    instruments.forEach(instrument => {
+        let instrOption = new Option(instrument.displayName,instrument.name)
+        instrSelect.appendChild(instrOption)
+    });
+    // function convertToDecimal(){
+    //     try{ position.units = parseFloat(quantityInput.value); }
+    //     catch(e){ console.log(e) }
+    // }
+
+</script>
