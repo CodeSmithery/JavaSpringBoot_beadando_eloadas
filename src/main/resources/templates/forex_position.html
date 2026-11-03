@@ -16,20 +16,74 @@
 </head>
 
 
-<body>
+<body class="w3-dark-mode">
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main>
+<main class="w3-content w3-padding-64" style="max-width:1500px">
+    <div class="w3-center w3-padding-64">
+        <table class="w3-table-all" id="positionTable">
+            <tr class="w3-crimson">
+                <td>Azonosító</td>
+                <td>Devizapár</td>
+                <td>Nyitás dátuma</td>
+                <td>Mennyiség</td>
+                <td>Jelenlegi ár</td>
+                <td>Realizálatlan profil/veszteség</td>
+            </tr>
+        </table>
 
+        <a th:href="@{'/forex_history'}"><h2 class="w3-button w3-crimson w3-hover-green w3-round-large" style="margin-top: 60px">Vissza az űrlapra</h2></a>
+    </div>
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
-<script>
+<script th:inline="javascript">
     const mobileMenu = document.getElementById("navDemo");
 
     function myFunction() {
         mobileMenu.classList.toggle("w3-show");
     }
+
+    let table = document.getElementById("positionTable");
+
+    let trades = [[${trades}]];
+    console.log(trades);
+
+    trades.forEach(trade => {
+        let newRow = document.createElement("tr");
+        // newRow.classList.add("w3-hoverable", "w3-striped", "w3-bold", "w3-centered");
+        for (let j = 0; j < 6; j++) {
+            let newCell = document.createElement("td");
+            if ( j === 0 ) {
+                newCell.innerText = trade.id;
+                newRow.appendChild(newCell);
+                table.appendChild(newRow);
+                continue;
+            }
+            switch (j) {
+                case 1:
+                    newCell.innerText = trade.instrument;
+                    break;
+                case 2:
+                    newCell.innerText = trade.openTime;
+                    break;
+                case 3:
+                    newCell.innerText = trade.initialUnits;
+                    break;
+                case 4:
+                    newCell.innerText = trade.price;
+                    break;
+                case 5:
+                    newCell.innerText = trade.unrealizedPL;
+                    break;
+                default:
+                    newCell.innerText = "ERROR";
+            }
+            newRow.appendChild(newCell);
+            table.appendChild(newRow);
+        }
+    })
+    table.classList.add("w3-card"); //("w3-table-all");
 </script>
 </body>
 </html>
