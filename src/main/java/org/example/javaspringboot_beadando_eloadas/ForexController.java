@@ -42,13 +42,15 @@ public class ForexController {
 //        return null;
 //    }
 
+    private String id;
     @ModelAttribute
-    public void commonModel(Model model) {
+    public void commonModel(Model model) throws ExecuteException, RequestException {
         model.addAttribute("formFilled", false);
         model.addAttribute("candleRequest", new CandleRequest());
         model.addAttribute( "instruments", dataProvider.getInstruments());
         model.addAttribute("granualities", CandlestickGranularity.values());
         model.addAttribute("position", new Position());
+        model.addAttribute( "trades", listOpenPositions.listOpenPositions());
     }
 
 
@@ -128,14 +130,20 @@ public class ForexController {
 
 
     @RequestMapping("/forex_position")
-    public String forex_position(Model model) throws ExecuteException, RequestException {
-        model.addAttribute( "trades", listOpenPositions.listOpenPositions());
-        return "forex_position";
-    }
+    public String forex_position(Model model){ return "forex_position"; }
+
 
     @RequestMapping("/forex_close")
-    public String forex_close(){
+    public String forex_close(Model model) { return "forex_close"; }
 
+    @GetMapping("/forex_close/closed")
+    public String inputClose(Model model){
+        return "forex_close";
+    }
+    @PostMapping("/forex_close/closed")
+    public String outputClose(@ModelAttribute Position position, Model model){
+        model.addAttribute( "formFilled", true);
+        closePosition.closePosition(position.tradeId);
         return "forex_close";
     }
 
