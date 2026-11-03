@@ -22,13 +22,11 @@
 <!-- Navbar -->
 <div class="w3-top" th:fragment="navbar">
   <nav>
-    <nav class="w3-flex w3-red w3-card w3-large">
-
+    <nav class="w3-flex w3-crimson w3-card w3-large">
       <a href="/"
          class="w3-button w3-hide-small w3-padding-large w3-hover-white">
         FŐOLDAL
       </a>
-
       <a href="/soap"
          class="w3-button w3-hide-small w3-padding-large w3-hover-white">
         SOAP
@@ -44,26 +42,23 @@
             <a href="/forex_close" class="w3-bar-item w3-button">Zár menü</a>
           </div>
       </div>
-
       <button
-              class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white w3-red"
+              class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white w3-crimson"
               style="margin-left:auto"
               onclick="myFunction()"
               title="Toggle Navigation Menu">
         <i class="fa fa-bars"></i>
       </button>
-
     </nav>
-
     <!-- Navbar on small screens -->
     <div id="navDemo"
          class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
-
+      <a href="/forex_account" class="w3-bar-item w3-button w3-padding-large">Account menü</a>
+      <a href="/forex_current" class="w3-bar-item w3-button w3-padding-large">AktÁr menü</a>
+      <a href="/forex_history" class="w3-bar-item w3-button w3-padding-large">HistÁr menü</a>
+      <a href="/forex_position" class="w3-bar-item w3-button w3-padding-large">Poz menü</a>
+      <a href="/forex_open" class="w3-bar-item w3-button w3-padding-large">Nyit menü</a>
+      <a href="/forex_close" class="w3-bar-item w3-button w3-padding-large">Zár menü</a>
     </div>
 
   </nav>

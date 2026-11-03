@@ -14,17 +14,51 @@ import soapclient.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Currency;
 import java.util.List;
 
 @Controller
 public class SoapController {
+    @JacksonXmlRootElement(localName = "MNBCurrencies")
+    public static class MNBCurrencies {
+        @JacksonXmlProperty(localName = "Currencies")
+        private Currencies currencies;
+        public MNBCurrencies() {}
+        public Currencies getCurrencies() { return currencies;}
+        public void setCurrencies(Currencies currencies) {
+            this.currencies = currencies;
+        }
+    }
+
+    public static class Currencies {
+        @JacksonXmlElementWrapper(useWrapping = false)
+        @JacksonXmlProperty(localName = "Curr")
+        private List<String> curr;
+
+        public Currencies() {}
+
+        public List<String> getCurr() {return curr;}
+        public void setCurr(List<String> curr) {this.curr = curr;}
+    }
+
+    private final MNBArfolyamServiceSoap service = new MNBArfolyamServiceSoapImpl().getCustomBindingMNBArfolyamServiceSoap();
 
     @ModelAttribute
-    public void commonModel(Model model) {
+    public void commonModel(Model model) throws MNBArfolyamServiceSoapGetCurrenciesStringFaultFaultMessage, JsonProcessingException {
+        String xml = service.getCurrencies();
+//        System.out.println(xml);
+        XmlMapper xmlMapper = new XmlMapper();
+        MNBCurrencies result = xmlMapper.readValue(xml, MNBCurrencies.class);
+        List<String> currencies = result.getCurrencies().getCurr();
+//        System.out.println(currencies);
+        currencies.remove("HUF");
+
+        model.addAttribute("currencies", currencies);
         model.addAttribute("formFilled", false);
         model.addAttribute("param", new MessagePrice());
         model.addAttribute("defaultStartDate", LocalDate.now().minusDays(10).toString());
         model.addAttribute("defaultEndDate", LocalDate.now().toString());
+        model.addAttribute("availableCurrencies", currencies);
     }
 
     @RequestMapping("/soap")
@@ -37,9 +71,6 @@ public class SoapController {
     }
     @PostMapping("/soap/mnb_request")
     public String output(@ModelAttribute MessagePrice messagePrice, Model model) throws MNBArfolyamServiceSoapGetExchangeRatesStringFaultFaultMessage, JsonProcessingException {
-        MNBArfolyamServiceSoapImpl impl = new MNBArfolyamServiceSoapImpl();
-        MNBArfolyamServiceSoap service = impl.getCustomBindingMNBArfolyamServiceSoap();
-
         String xml = service.getExchangeRates(messagePrice.getStartDate().toString(),messagePrice.getEndDate().toString(),messagePrice.getCurrency());
         String currency = messagePrice.getCurrency();
 //        System.out.println(xml);
@@ -105,4 +136,5 @@ public class SoapController {
         private List<ExchangeDay> days;
         public List<ExchangeDay> getDays() { return days; }
     }
+
 }
