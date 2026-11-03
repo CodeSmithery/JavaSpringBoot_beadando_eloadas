@@ -4,7 +4,7 @@
             <tr class="w3-large">
                 <td class="w3-right-align w3-bold w3-padding-small">Pénznem:</td>
                 <td class="w3-left-align w3-padding-small">
-                    <select name="currencies" th:field="*{currency}">
+                    <select class="w3-select w3-border" name="currencies" th:field="*{currency}">
                         <option value="EUR">EUR</option>
                         <option value="USD">USD</option>
                         <option value="GBP">GBP</option>
@@ -90,14 +90,14 @@
             </tr>
             <tr class="w3-large">
                 <td class="w3-right-align w3-bold w3-padding-small">Kezdő dátum: </td>
-                <td class="w3-left-align w3-padding-small"><input type="date" id="startDate" th:field="*{startDate}"></td>
+                <td class="w3-left-align w3-padding-small"><input class="w3-input w3-border" type="date" id="startDate" th:field="*{startDate}"></td>
             </tr>
             <tr class="w3-large">
                 <td class="w3-right-align w3-bold w3-padding-small">Végső dátum: </td>
-                <td class="w3-left-align w3-padding-small" style="border: none"><input type="date" id="endDate" th:field="*{endDate}"></td>
+                <td class="w3-left-align w3-padding-small"><input class="w3-input w3-border" type="date" id="endDate" th:field="*{endDate}"></td>
             </tr>
         </table>
-        <input type="submit" value="Lekérdez" class="w3-button w3-red w3-hover-green w3-round-large">
+        <input type="submit" value="Lekérdez" class="w3-large w3-button w3-red w3-hover-green w3-round-large">
     </form>
 </div>
 <script th:inline="javascript">
