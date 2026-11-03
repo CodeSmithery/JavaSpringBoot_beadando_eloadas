@@ -42,15 +42,15 @@ public class ForexController {
         model.addAttribute("granualities", CandlestickGranularity.values());
     }
 
-@RequestMapping("/forex_account")
+    @RequestMapping("/forex_account")
     public String forex_account(Model model) {
-    Context ctx = new Context(Config.URL,Config.TOKEN);
+        Context ctx = new Context(Config.URL,Config.TOKEN);
 
-    try {
-        AccountSummary summary = ctx.account.summary(Config.ACCOUNTID).getAccount();
-        model.addAttribute("account",summary);
-    }
-    catch (Exception e) { e.printStackTrace(); }
+        try {
+            AccountSummary summary = ctx.account.summary(Config.ACCOUNTID).getAccount();
+            model.addAttribute("account",summary);
+        }
+        catch (Exception e) { e.printStackTrace(); }
         return "forex_account";
     }
 

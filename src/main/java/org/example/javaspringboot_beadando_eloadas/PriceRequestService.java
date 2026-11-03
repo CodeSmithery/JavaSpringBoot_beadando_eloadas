@@ -17,12 +17,9 @@ import com.v20.primitives.InstrumentName;
 
 @Service
 public class PriceRequestService {
+    private final Context ctx = ContextProviderService.getContext("ContextProviderService");
     public List<ClientPrice> getAllClientPrices(List<InstrumentName> instrumentNames) {
         try {
-            Context ctx = new ContextBuilder(Config.URL)
-                    .setToken(Config.TOKEN)
-                    .setApplication("PriceRequestService")
-                    .build();
             PricingGetRequest request = new PricingGetRequest(Config.ACCOUNTID, instrumentNames);
             PricingGetResponse response = ctx.pricing.get(request);
 
