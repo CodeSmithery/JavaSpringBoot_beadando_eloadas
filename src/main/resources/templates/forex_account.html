@@ -16,44 +16,44 @@
 </head>
 
 
-<body>
+<body class="w3-dark-mode">
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <main>
     <div class="w3-center w3-padding-64">
         <h2>Forex fiók adatai:</h2>
-        <table class="w3-hoverable w3-striped w3-content w3-centered" id="accountTable">
+        <table class="w3-large w3-hoverable w3-striped w3-content w3-centered" id="accountTable">
             <tr>
-                <td class="w3-bold">ID</td>
-                <td id="id"></td>
+                <td class="w3-padding w3-bold">ID</td>
+                <td class="w3-padding" id="id"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Balance</td>
-                <td id="balanceAndCurrency"></td>
+                <td class="w3-padding w3-bold">Balance</td>
+                <td class="w3-padding" id="balanceAndCurrency"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Financing</td>
-                <td id="financing"></td>
+                <td class="w3-padding w3-bold">Financing</td>
+                <td class="w3-padding" id="financing"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Last transaction ID</td>
-                <td id="lastTransactionID"></td>
+                <td class="w3-padding w3-bold">Last transaction ID</td>
+                <td class="w3-padding" id="lastTransactionID"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Withdrawal limit</td>
-                <td id="withdrawalLimit"></td>
+                <td class="w3-padding w3-bold">Withdrawal limit</td>
+                <td class="w3-padding" id="withdrawalLimit"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Open positions</td>
-                <td id="openPositionCount"></td>
+                <td class="w3-padding w3-bold">Open positions</td>
+                <td class="w3-padding" id="openPositionCount"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Open trades</td>
-                <td id="openTradeCount"></td>
+                <td class="w3-padding w3-bold">Open trades</td>
+                <td class="w3-padding" id="openTradeCount"></td>
             </tr>
             <tr>
-                <td class="w3-bold">Pending orders</td>
-                <td id="pendingOrderCount"></td>
+                <td class="w3-padding w3-bold">Pending orders</td>
+                <td class="w3-padding" id="pendingOrderCount"></td>
             </tr>
         </table>
     </div>
