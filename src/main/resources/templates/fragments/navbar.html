@@ -1,25 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en"-->
-<!--      xmlns:th="http://www.thymeleaf.org">-->
-<!--<title>navbar</title>-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/6/w3.css">-->
-<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">-->
-<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">-->
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-
-<!--<style>-->
-<!--  body,h1,h2,h3,h4,h5,h6 {font-family:"Lato",sans-serif}-->
-<!--  .w3-bar,h1,button {font-family:"Montserrat",sans-serif}-->
-<!--  .fa-anchor,.fa-coffee {font-size:200px}-->
-<!--</style>-->
-
-<!--<head>-->
-<!--  <meta charset="UTF-8">-->
-<!--  <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!-- Navbar -->
 <div class="w3-top" th:fragment="navbar">
   <nav>
     <nav class="w3-flex w3-crimson w3-card w3-large">
@@ -34,12 +12,12 @@
       <div class="w3-dropdown-hover">
         <button class="w3-button w3-hide-small w3-padding-large w3-hover-white">FOREX</button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
-            <a href="/forex_account" class="w3-bar-item w3-button">Account menü</a>
-            <a href="/forex_current" class="w3-bar-item w3-button">AktÁr menü</a>
-            <a href="/forex_history" class="w3-bar-item w3-button">HistÁr menü</a>
-            <a href="/forex_position" class="w3-bar-item w3-button">Poz menü</a>
-            <a href="/forex_open" class="w3-bar-item w3-button">Nyit menü</a>
-            <a href="/forex_close" class="w3-bar-item w3-button">Zár menü</a>
+            <a href="/forex_account" class="w3-bar-item w3-button">Fiók adatai</a>
+            <a href="/forex_current" class="w3-bar-item w3-button">Aktuális ár</a>
+            <a href="/forex_history" class="w3-bar-item w3-button">Historikus ár</a>
+            <a href="/forex_position" class="w3-bar-item w3-button">Nyitott pozíciók</a>
+            <a href="/forex_open" class="w3-bar-item w3-button">Pozíció nyitás</a>
+            <a href="/forex_close" class="w3-bar-item w3-button">Pozítió zárás</a>
           </div>
       </div>
       <button
@@ -51,17 +29,15 @@
       </button>
     </nav>
     <!-- Navbar on small screens -->
-    <div id="navDemo"
-         class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-      <a href="/forex_account" class="w3-bar-item w3-button w3-padding-large">Account menü</a>
-      <a href="/forex_current" class="w3-bar-item w3-button w3-padding-large">AktÁr menü</a>
-      <a href="/forex_history" class="w3-bar-item w3-button w3-padding-large">HistÁr menü</a>
-      <a href="/forex_position" class="w3-bar-item w3-button w3-padding-large">Poz menü</a>
-      <a href="/forex_open" class="w3-bar-item w3-button w3-padding-large">Nyit menü</a>
-      <a href="/forex_close" class="w3-bar-item w3-button w3-padding-large">Zár menü</a>
+    <div id="navDemo" class="w3-responsive w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="/" class="w3-button w3-bar-item">FŐOLDAL</a>
+      <a href="/soap" class="w3-button w3-bar-item">SOAP</a>
+      <a href="/forex_account" class="w3-bar-item w3-button ">Forex- Fiók adatai</a>
+      <a href="/forex_current" class="w3-bar-item w3-button ">Forex- Aktuális ár</a>
+      <a href="/forex_history" class="w3-bar-item w3-button">Forex- Historikus ár</a>
+      <a href="/forex_position" class="w3-bar-item w3-buttone">Forex- Nyitott pozíciók</a>
+      <a href="/forex_open" class="w3-bar-item w3-button">Forex- Pozíció nyitás</a>
+      <a href="/forex_close" class="w3-bar-item w3-button">Forex- Pozítió zárás</a>
     </div>
-
   </nav>
 </div>
-<!--</body>-->
-<!--</html>-->
